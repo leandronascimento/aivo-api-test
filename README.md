@@ -1,3 +1,13 @@
+## Youtube search list
+Api para busca de videos no Youtube
+#### Tecnologias:
+- Lumen Framework 8.0
+- Nginx
+- Docker
+- PHPUnit
+#### Features:
+- Busca de videos no Youtube
+
 ### Intruções para instalação
 #### Clonar o repositório
 
