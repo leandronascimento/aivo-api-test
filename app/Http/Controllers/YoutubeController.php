@@ -14,13 +14,11 @@ class YoutubeController extends Controller
      *  Call the search list method to retrieve results matching the specified query term
      *
      * @param Request $request
+     * @param YoutubeService $youtubeService
      * @return JsonResponse
-     * @throws \Exception
      */
-    public function search(Request $request): JsonResponse
+    public function search(Request $request, YoutubeService $youtubeService): JsonResponse
     {
-        $youtubeService = new YoutubeService();
-
         try {
             $data = $youtubeService->searchVideos($request->get('query'));
         } catch (\Exception $e) {
