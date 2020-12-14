@@ -21,35 +21,32 @@ $ cp .env.example .env
 $ docker exec -it aivo-api-test_php_1 composer install
 ```
 
-#### Migrations.
-``` bash
-$ docker exec -it aivo-api-test_php_1 php artisan migrate
-```
-
 #### Rodando os testes da aplicação.
 ``` bash
-$ docker exec -it aivo-api-test_php_1 php php ./vendor/bin/phpunit
+$ docker exec -it aivo-api-test_php_1 php ./vendor/bin/phpunit
 ```
 
 #### HTTP
-- `GET localhost/api/youtube?search=muse` lista.
+- `GET http://localhost/api/youtube?query=muse` lista.
 
 #### API
 ##### Busca por videos do Youtube
 ``` bash
-$ curl --location --request POST 'localhost/api/youtube?search=muse'
+$ curl --location --request POST 'http://localhost/api/youtube?query=muse'
 ```
 
 Resposta esperada:
 ```json
 {
-"published_at": "2009-10-09T13:15:12.000Z",
-"id": "X8f5RgwY8CI",
-"title": "MUSE - Algorithm [Official Music Video]",
-"description": "Description here...",
-"thumbnail": "https://i.ytimg.com/vi/TPE9uSFFxrI/default.jpg",
-	"extra": {
-		"something": "extra"
-	}
+    "published_at": "2009-10-09T13:15:12Z",
+    "id": "w8KQmps-Sog",
+    "title": "Muse - Uprising [Official Video]",
+    "description": "Watch the music video for \"Uprising\" now! \"Uprising\" was released as the lead single from Muse's fifth studio album, The Resistance, on September 7, 2009.",
+    "thumbnail": "https:\/\/i.ytimg.com\/vi\/w8KQmps-Sog\/default.jpg",
+    "extra": {
+      "channelTitle": "Muse",
+      "liveBroadcastContent": "none",
+      "publishTime": "2009-10-09T13:15:12Z"
+    }
 },
 ```
